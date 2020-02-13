@@ -1,0 +1,7 @@
+Django
+psycopg2-binary
+
+pylint
+pylint-django
+black
+pytest
