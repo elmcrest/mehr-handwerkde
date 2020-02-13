@@ -1,1 +1,1 @@
-CREATE DATABASE mehrhandwerk_local;
+CREATE DATABASE mehr-handwerkde;
