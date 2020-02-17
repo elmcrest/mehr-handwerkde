@@ -1,0 +1,3 @@
+[submodule "app/static/style-tailwind"]
+	path = app/static/style-tailwind
+	url = https://github.com/elmcrest/style-tailwind.git
