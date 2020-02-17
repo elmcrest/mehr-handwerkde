@@ -42,6 +42,8 @@
         "ms-azuretools.vscode-docke",
         "jhartell.vscode-line-endings",
         "hbenl.vscode-test-explorer",
-        "littlefoxteam.vscode-python-test-adapter"
+        "littlefoxteam.vscode-python-test-adapter",
+        "batisteo.vscode-django"
+        // "bradlc.vscode-tailwindcss"
     ]
 }
