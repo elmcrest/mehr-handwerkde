@@ -15,6 +15,39 @@
                 "0.0.0.0:8000"
             ],
             "django": true
-        }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "tailcss build",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "build"
+            ],
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "tailcss watch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "watch"
+            ],
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "tailcss compile",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "compile"
+            ],
+            "cwd": "${workspaceRoot}"
+        },
     ]
 }
