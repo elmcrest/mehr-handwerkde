@@ -1,8 +1,5 @@
 {
-  "dockerComposeFile": [
-    "../docker-compose.yml",
-    "docker-compose.extend.yml"
-  ],
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.extend.yml"],
   "service": "app",
   "workspaceFolder": "/app",
   // Use 'settings' to set *default* container specific settings.json values on container create.
@@ -37,9 +34,7 @@
     },
     "liveServer.settings.host": "0.0.0.0",
     "liveServer.settings.port": 8000,
-    "prettier.disableLanguages": [
-      "html"
-    ]
+    "prettier.disableLanguages": ["html"]
     // "tailwindCSS.emmetCompletions": true,
     // "files.associations": {
     //   "**/*.html": "html",
@@ -49,17 +44,11 @@
     // }
     // "emmet.includeLanguages": { "django-html": "html" }
   },
-  "appPort": [
-    8000,
-    35729
-  ],
+  "appPort": [8000, 35729],
   "shutdownAction": "stopCompose",
-  "postCreateCommand": "sudo cp -r /root/.ssh-localhost ~ && sudo chown -R $(id -u):$(id -g) ~/.ssh-localhost && mv ~/.ssh-localhost ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/* && pip install -r requirements/requirements.txt && pip install -r requirements/requirements_dev.txt",
+  "postCreateCommand": "sudo cp -r /root/.ssh-localhost ~ && sudo chown -R $(id -u):$(id -g) ~/.ssh-localhost && mv ~/.ssh-localhost ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/* && pip install -r requirements/requirements.txt && pip install -r requirements/requirements_dev.txt && npm install",
   "remoteUser": "vscode",
-  "runArgs": [
-    "-u",
-    "vscode"
-  ],
+  "runArgs": ["-u", "vscode"],
   "extensions": [
     "ms-python.python",
     "ms-azuretools.vscode-docke",
