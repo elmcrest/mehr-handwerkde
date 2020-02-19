@@ -6,23 +6,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-  <title>Softronic</title>
+  <title>Softronic 2020</title>
 </head>
 
 <body class="font-sans bg-gray-700">
   {% block header %}{% endblock header%}
   <nav class="flex items-end justify-between flex-wrap bg-black px-6 py-5">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
-      <img class="h-16" src="{% static 'logo_main.svg' %}" alt="Logo Softronic Haustechnik und Holzbau GmbH">
+      <img class="h-16" src="{% static 'logo/logo_main.svg' %}" alt="Logo Softronic Haustechnik und Holzbau GmbH">
     </div>
     <div class="block md:hidden">
       <button onclick="burgerMenu()"
-        class="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white">
-        <svg id="burgerIcon" class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        class="flex items-center px-3 py-2 focus:outline-none border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white">
+        <svg id="burgerOpenIcon" class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <title>Menu</title>
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
         </svg>
-        <svg id="closeIcon" class="hidden fill-current h3- w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <svg id="burgerCloseIcon" class="hidden fill-current h3- w-3" xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20">
           <path
             d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z">
           </path>
@@ -48,13 +49,26 @@
     </div>
   </nav>
   <div class="bg-colorful h-1 w-full"></div>
+  <button id="burgerCloseArea" class="hidden bg-red-500 h-full w-full fixed z-10"></button>
   {% block content %}{% endblock content %}
   {% block footer %}{% endblock footer%}
   <script>
+    // dynamically addEventListener, the in-tag 'onclick' doesn't work
+    document.querySelector("#burgerCloseArea").addEventListener("click", burgerMenu);
     function burgerMenu() {
-      burgerMenuComponents =
-        [document.querySelector("#burgerContent"), document.querySelector("#burgerIcon"), document.querySelector("#closeIcon")]
-      burgerMenuComponents.forEach(element => {
+      burgerIncredients = [...document.querySelectorAll(
+        "#burgerContent",
+        "#burgerOpenIcon",
+        "#burgerCloseArea",
+        "#burgerCloseIcon",
+      )];
+      burgerIncredients = [
+        document.querySelector("#burgerContent"),
+        document.querySelector("#burgerOpenIcon"),
+        document.querySelector("#burgerCloseArea"),
+        document.querySelector("#burgerCloseIcon"),
+      ];
+      burgerIncredients.forEach(element => {
         element.classList.toggle("hidden");
       });
     }

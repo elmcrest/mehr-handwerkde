@@ -125,7 +125,8 @@ STATICFILES_DIRS = [
 ]
 
 STATICFILES_DIRS = [
-    BASE_DIR + "/static/style-tailwind/out/build/",
+    BASE_DIR + "/static/style/build/",
+    BASE_DIR + "/static/images/",
 ]
 
 
@@ -143,4 +144,5 @@ STATICFILES_DIRS = [
 if DEBUG:
     INSTALLED_APPS += ["livereload"]
     MIDDLEWARE += ["livereload.middleware.LiveReloadScript"]
-    LIVERELOAD_HOST = "0.0.0.0"
+    # LIVERELOAD_HOST = "0.0.0.0"
+    # livereload server fails in case you're in a container/VM or similar and set this to 0.0.0.0
