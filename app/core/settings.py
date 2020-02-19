@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "martor",
+    "pages",
     "projects",
 ]
 
@@ -56,7 +57,7 @@ ROOT_URLCONF = "core.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR + "/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -118,6 +119,10 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = "/static"  # devcontainer
+STATICFILES_DIRS = [
+    BASE_DIR + "/static/style/build",
+    BASE_DIR + "/static/images/logo",
+]
 
 # MARTOR_ENABLE_CONFIGS = {
 #     "emoji": "true",  # to enable/disable emoji icons.
@@ -129,3 +134,8 @@ STATIC_ROOT = "/static"  # devcontainer
 #     "hljs": "true",  # to enable/disable hljs highlighting in preview
 # }
 # MARTOR_ENABLE_LABEL = True
+
+if DEBUG:
+    INSTALLED_APPS += ["livereload"]
+    MIDDLEWARE += ["livereload.middleware.LiveReloadScript"]
+    LIVERELOAD_HOST = "0.0.0.0"
