@@ -1,0 +1,17 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+@tailwind utilities;
+
+.bg-colorful {
+  background: linear-gradient(
+    to right,
+    #f08925 0%,
+    #db001b 21%,
+    #8ac2e6 41%,
+    #bcc1c3 61%,
+    #a0670f 78%,
+    #979200 100%
+  );
+}

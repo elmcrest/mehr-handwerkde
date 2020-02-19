@@ -1,20 +1,32 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "runserver",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceFolder}/app/manage.py",
-            "args": [
-                "runserver",
-                "--noreload",
-                "0.0.0.0:8000"
-            ],
-            "django": true
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "runserver",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/app/manage.py",
+      "args": ["runserver", "--noreload", "0.0.0.0:8000"],
+      "django": true
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "tailcss build",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "build"],
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "tailcss compile",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "compile"],
+      "cwd": "${workspaceRoot}"
+    }
+  ]
 }

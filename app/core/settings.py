@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "martor",
-    "core",
+    "pages",
     "projects",
 ]
 
@@ -119,6 +119,10 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = "/static"  # devcontainer
+STATICFILES_DIRS = [
+    BASE_DIR + "/static/style/build",
+    BASE_DIR + "/static/images/logo",
+]
 
 STATICFILES_DIRS = [
     BASE_DIR + "/static/style-tailwind/out/build/",
@@ -135,3 +139,8 @@ STATICFILES_DIRS = [
 #     "hljs": "true",  # to enable/disable hljs highlighting in preview
 # }
 # MARTOR_ENABLE_LABEL = True
+
+if DEBUG:
+    INSTALLED_APPS += ["livereload"]
+    MIDDLEWARE += ["livereload.middleware.LiveReloadScript"]
+    LIVERELOAD_HOST = "0.0.0.0"

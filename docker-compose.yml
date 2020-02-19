@@ -11,6 +11,7 @@ services:
       dockerfile: .devcontainer/app/Dockerfile
     ports:
       - "8000:8000"
+      - "35729:35729"
     links:
       - postgres
     command: "/app/.devcontainer/app/idle.sh"

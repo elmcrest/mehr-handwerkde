@@ -25,12 +25,11 @@ ENV PATH=${PATH}:${PIP_TARGET}/bin
 # requirements rarely (if ever) change.
 # COPY requirements.txt /tmp/pip-tmp/
 
-# Configure apt and install packages
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
-    #
-    # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
-    && apt-get -y install git iproute2 procps lsb-release build-essential dumb-init \
+    git iproute2 procps lsb-release build-essential curl dumb-init \
+    && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+    && apt-get install -y nodejs \
     #
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
