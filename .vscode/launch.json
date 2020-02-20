@@ -13,6 +13,14 @@
       "django": true
     },
     {
+      "name": "livereload",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/app/manage.py",
+      "args": ["livereload", "--host", "0.0.0.0"],
+      "django": false
+    },
+    {
       "type": "node",
       "request": "launch",
       "name": "tailcss build",
@@ -27,6 +35,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "compile"],
       "cwd": "${workspaceRoot}"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "runserver+livereload",
+      "configurations": ["runserver", "livereload"]
     }
   ]
 }

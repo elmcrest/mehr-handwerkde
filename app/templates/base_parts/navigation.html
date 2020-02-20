@@ -1,0 +1,40 @@
+{% load static %}
+<nav class="flex items-end justify-between flex-wrap bg-black px-6 py-5">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <img class="h-16" src="{% static 'logo/logo_main.svg' %}" alt="Logo Softronic Haustechnik und Holzbau GmbH">
+    </div>
+    <div class="block md:hidden">
+        <button onclick="burgerMenu()"
+            class="flex items-center px-3 py-2 focus:outline-none border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white">
+            <svg id="burgerOpenIcon" class="fill-current h-3 w-3" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+            <svg id="burgerCloseIcon" class="hidden fill-current h3- w-3" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20">
+                <path
+                    d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z">
+                </path>
+            </svg>
+        </button>
+    </div>
+    <div id="burgerContent" class="hidden w-full block flex-grow md:flex md:items-end md:w-auto">
+        <div class="text-sm md:flex-grow">
+            <a href="{% url 'index' %}" class="block mt-4 md:inline-block md:mt-0 mr-4 hover:text-white
+          {% if request.path == '/' %} text-red-500 {% else %} text-gray-300 {% endif %}">
+                Artikel
+            </a>
+            <a href="{% url 'leitbild' %}" class="block mt-2 md:inline-block md:mt-0 mr-4 hover:text-white
+          {% if 'leitbild' in request.path %} text-red-500 {% else %} text-gray-300 {% endif %}">
+                Die Firma
+            </a>
+            <a href="{% url 'jobs' %}" class="block mt-2 md:inline-block md:mt-0 hover:text-white
+          {% if 'jobs' in request.path %} text-red-500 {% else %} text-gray-300 {% endif %}">
+                Stellenangebote
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="bg-colorful h-1 w-full"></div>
+<button id="burgerCloseArea" class="hidden h-full w-full fixed z-10"></button>
