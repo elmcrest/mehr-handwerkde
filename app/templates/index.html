@@ -32,24 +32,23 @@
     </div>
     <div id="burgerContent" class="hidden w-full block flex-grow md:flex md:items-end md:w-auto">
       <div class="text-sm md:flex-grow">
-        <a href="{% url 'index' %}" class="block mt-4 md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4">
-          Docs
+        <a href="{% url 'index' %}" class="block mt-4 md:inline-block md:mt-0 mr-4 hover:text-white
+          {% if request.path == '/' %} text-red-500 {% else %} text-gray-300 {% endif %}">
+          Infos
         </a>
-        <a href="{% url 'leitbild' %}" class="block mt-2 md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4">
-          Examples
+        <a href="{% url 'leitbild' %}" class="block mt-2 md:inline-block md:mt-0 mr-4 hover:text-white
+          {% if 'leitbild' in request.path %} text-red-500 {% else %} text-gray-300 {% endif %}">
+          Die Firma
         </a>
-        <a href="{% url 'jobs' %}" class="block mt-2 md:inline-block md:mt-0 text-gray-300 hover:text-white">
-          Blog2
+        <a href="{% url 'jobs' %}" class="block mt-2 md:inline-block md:mt-0 hover:text-white
+          {% if 'jobs' in request.path %} text-red-500 {% else %} text-gray-300 {% endif %}">
+          Stellen
         </a>
-      </div>
-      <div>
-        <a href="#"
-          class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-900 hover:bg-white mt-4 lg:mt-0">Kontakt</a>
       </div>
     </div>
   </nav>
   <div class="bg-colorful h-1 w-full"></div>
-  <button id="burgerCloseArea" class="hidden bg-red-500 h-full w-full fixed z-10"></button>
+  <button id="burgerCloseArea" class="hidden h-full w-full fixed z-10"></button>
   {% block content %}{% endblock content %}
   {% block footer %}{% endblock footer%}
   <script>
